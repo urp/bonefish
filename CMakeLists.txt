@@ -5,16 +5,15 @@ include( GNUInstallDirs )
 
 project( bonefish VERSION 0.1 )
 
-add_library( bonefish_common INTERFACE )
+option( BUILD_SHARED_LIBS "Build shared libraries when enabled. Build static libraries when disabled." ON )
 
-set(CMAKE_MODULE_PATH
-  ${CMAKE_MODULE_PATH}
+list( APPEND CMAKE_MODULE_PATH
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules/"
 )
 
-if( NOT BUILD_SHARED_LIBS )
-  set(Boost_USE_STATIC_LIBS ON)
-endif()
+# if( NOT BUILD_SHARED_LIBS )
+#   set(Boost_USE_STATIC_LIBS ON)
+# endif()
 
 if(WIN32)
     add_definitions(-D_WIN32_WINNT=0x0500)
@@ -27,8 +26,6 @@ find_package( Boost REQUIRED
     system
     thread
 )
-
-find_package( Threads REQUIRED )
 
 find_package( Msgpack REQUIRED )
 
