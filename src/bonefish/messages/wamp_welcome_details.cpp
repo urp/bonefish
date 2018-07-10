@@ -21,7 +21,7 @@
 #include <stdexcept>
 
 namespace msgpack {
-MSGPACK_API_VERSION_NAMESPACE(MSGPACK_DEFAULT_API_NS) {
+MSGPACK_API_VERSION_NAMESPACE(v1) {
 
 object const& operator>> (msgpack::object const&, bonefish::wamp_welcome_details&)
 {
@@ -75,7 +75,7 @@ void operator<< (object::with_zone& details,
     details.via.map.ptr[0].val = *(static_cast<object*>(&roles));
 }
 
-} // MSGPACK_API_VERSION_NAMESPACE(MSGPACK_DEFAULT_API_NS)
+} // MSGPACK_API_VERSION_NAMESPACE(v1)
 } // namespace msgpack
 
 namespace bonefish {
