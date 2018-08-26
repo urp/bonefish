@@ -189,10 +189,23 @@ target_include_directories( bonefish
 
 foreach(h ${PUBLIC_HEADERS})
     get_filename_component(HEADER_INCLUDE_DIRECTORY ${CMAKE_INSTALL_INCLUDEDIR}/${h} DIRECTORY)
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/${h} DESTINATION ${HEADER_INCLUDE_DIRECTORY} COMPONENT "dev")
+    install( FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/${h} 
+      DESTINATION ${HEADER_INCLUDE_DIRECTORY} 
+      COMPONENT dev
+    )
 endforeach()
 
-install(TARGETS bonefish DESTINATION ${CMAKE_INSTALL_LIBDIR} EXPORT bonefish-targets )
+install(TARGETS bonefish EXPORT bonefish-targets 
+  LIBRARY
+    DESTINATION ${CMAKE_INSTALL_LIBDIR} 
+    COMPONENT lib
+  ARCHIVE 
+    DESTINATION ${CMAKE_INSTALL_LIBDIR} 
+    COMPONENT lib
+  RUNTIME 
+    DESTINATION ${CMAKE_INSTALL_LIBDIR} 
+    COMPONENT lib
+)
 
 # Create package build configuration in build directory
 
