@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.1 )
 
+project( bonefish VERSION 0.1 )
+
 include( CMakePackageConfigHelpers )
 include( GNUInstallDirs )
-
-project( bonefish VERSION 0.1 )
 
 option( BUILD_SHARED_LIBS "Build shared libraries when enabled. Build static libraries when disabled." ON )
 
