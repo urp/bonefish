@@ -174,6 +174,8 @@ add_library( bonefish ${SOURCES} )
 
 add_library( bonefish::bonefish ALIAS bonefish )
 
+set_target_properties( bonefish PROPERTIES VERSION ${PROJECT_VERSION} )
+
 target_link_libraries( bonefish Boost::system Boost::thread )
 
 target_include_directories( bonefish
